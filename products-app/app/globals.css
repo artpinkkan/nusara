@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'KalbeSystem';
+  src: url('/fonts/KalbeSystem-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KalbeSystem';
+  src: url('/fonts/KalbeSystem-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KalbeSystem';
+  src: url('/fonts/KalbeSystem-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KalbeSystem';
+  src: url('/fonts/KalbeSystem-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'KalbeSystem';
+  src: url('/fonts/KalbeSystem-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --font-kalbe: 'KalbeSystem', system-ui, sans-serif;
+  --color-navy: #0D1B2D;
+  --color-brand-blue: #1E3A8A;
+  --color-brand-green: #16A34A;
+  --color-bg-light: #F8FAFC;
+  --color-bg-card: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'KalbeSystem', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  background: #F8FAFC;
+}

@@ -2,3 +2,6 @@
 .claude/
 mood-board.jpeg
 nusara_ws_pricing_interactive.html
+node_modules/
+products-app/.next/
+products-app/node_modules/
