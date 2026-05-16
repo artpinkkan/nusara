@@ -1,0 +1,2027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nusara Technology — Flow. Build. Advance.</title>
+  <style>
+    /* ── KALBE-SYSTEM FONT FAMILY ── */
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-ExtraLight.otf') format('opentype'); font-weight: 200; font-style: normal; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-ExtraLightItalic.otf') format('opentype'); font-weight: 200; font-style: italic; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-Light.otf') format('opentype'); font-weight: 300; font-style: normal; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-LightItalic.otf') format('opentype'); font-weight: 300; font-style: italic; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-Italic.otf') format('opentype'); font-weight: 400; font-style: italic; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-MediumItalic.otf') format('opentype'); font-weight: 500; font-style: italic; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-SemiBold.otf') format('opentype'); font-weight: 600; font-style: normal; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-SemiBoldItalic.otf') format('opentype'); font-weight: 600; font-style: italic; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-BoldItalic.otf') format('opentype'); font-weight: 700; font-style: italic; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-ExtraBold.otf') format('opentype'); font-weight: 800; font-style: normal; }
+    @font-face { font-family: 'KalbeSystem'; src: url('font/KalbeSystem-ExtraBoldItalic.otf') format('opentype'); font-weight: 800; font-style: italic; }
+
+    @font-face { font-family: 'KalbeSystemCondensed'; src: url('font/KalbeSystemCondensed-ExtraLight.otf') format('opentype'); font-weight: 200; font-style: normal; }
+    @font-face { font-family: 'KalbeSystemCondensed'; src: url('font/KalbeSystemCondensed-Light.otf') format('opentype'); font-weight: 300; font-style: normal; }
+    @font-face { font-family: 'KalbeSystemCondensed'; src: url('font/KalbeSystemCondensed-Regular.otf') format('opentype'); font-weight: 400; font-style: normal; }
+    @font-face { font-family: 'KalbeSystemCondensed'; src: url('font/KalbeSystemCondensed-Medium.otf') format('opentype'); font-weight: 500; font-style: normal; }
+    @font-face { font-family: 'KalbeSystemCondensed'; src: url('font/KalbeSystemCondensed-SemiBold.otf') format('opentype'); font-weight: 600; font-style: normal; }
+    @font-face { font-family: 'KalbeSystemCondensed'; src: url('font/KalbeSystemCondensed-Bold.otf') format('opentype'); font-weight: 700; font-style: normal; }
+    @font-face { font-family: 'KalbeSystemCondensed'; src: url('font/KalbeSystemCondensed-ExtraBold.otf') format('opentype'); font-weight: 800; font-style: normal; }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── LIGHT MODE TOKENS (moodboard brand colors as accents) ── */
+    :root {
+      /* Backgrounds */
+      --bg:       #F8FAFC;
+      --bg-2:     #F1F5F9;
+      --bg-3:     #E9EFF6;
+      --bg-card:  #FFFFFF;
+
+      /* Text */
+      --text:     #0D1B2D;   /* brand navy — used as primary text */
+      --text-2:   #334155;
+      --text-3:   #64748B;
+      --text-4:   #94A3B8;
+
+      /* Brand accents */
+      --blue:     #1E3A8A;
+      --blue-m:   #2550B8;
+      --blue-l:   #3B6ED4;
+      --blue-xl:  #DBEAFE;
+      --green:    #16A34A;
+      --green-l:  #22C55E;
+      --green-xl: #DCFCE7;
+
+      /* Borders & shadows */
+      --border:   #E2E8F0;
+      --border-2: #CBD5E1;
+      --shadow-xs: 0 1px 2px rgba(13,27,45,0.05);
+      --shadow-sm: 0 2px 8px rgba(13,27,45,0.07), 0 1px 2px rgba(13,27,45,0.04);
+      --shadow:    0 4px 20px rgba(13,27,45,0.09), 0 2px 6px rgba(13,27,45,0.05);
+      --shadow-lg: 0 16px 56px rgba(13,27,45,0.12), 0 4px 14px rgba(13,27,45,0.06);
+
+      --radius:    12px;
+      --radius-lg: 18px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'KalbeSystem', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ── UTILITIES ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+    .section    { padding: 100px 0; }
+    .section-sm { padding: 72px 0; }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 14px;
+    }
+    .label::before {
+      content: '';
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--blue);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+    .label-green { color: var(--green); }
+    .label-green::before { background: var(--green); }
+
+    h1, h2, h3, h4 { font-family: 'KalbeSystem', sans-serif; }
+
+    h1,h2,h3,h4 { color: var(--text); line-height: 1.1; }
+    h1 { font-size: clamp(2.8rem, 5.5vw, 4.4rem); font-weight: 700; letter-spacing: -0.01em; }
+    h2 { font-size: clamp(2rem, 3.8vw, 3rem);   font-weight: 700; letter-spacing: -0.01em; }
+    h3 { font-size: 1.05rem; font-weight: 700; }
+    h4 { font-size: 0.875rem; font-weight: 700; }
+
+    p { color: var(--text-3); font-size: 0.9rem; line-height: 1.8; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 26px;
+      border-radius: 100px;
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      border: none;
+      transition: all 0.22s ease;
+      letter-spacing: 0.03em;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: #fff;
+      box-shadow: 0 3px 14px rgba(22,163,74,0.28);
+    }
+    .btn-primary:hover { background: #15803d; transform: translateY(-1px); box-shadow: 0 6px 22px rgba(22,163,74,0.32); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border-2);
+    }
+    .btn-outline:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-xl); }
+
+    .btn-navy {
+      background: var(--text);
+      color: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-navy:hover { background: #162235; transform: translateY(-1px); }
+
+    .btn-blue {
+      background: var(--blue);
+      color: #fff;
+      box-shadow: 0 3px 14px rgba(30,58,138,0.25);
+    }
+    .btn-blue:hover { background: var(--blue-m); transform: translateY(-1px); }
+
+    /* ── GRIDS ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+
+    @media (max-width: 960px) {
+      .grid-4 { grid-template-columns: 1fr 1fr; }
+      .grid-3 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .section { padding: 72px 0; }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(248,250,252,0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo img { height: 40px; width: auto; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-3);
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-cta { padding: 10px 22px; font-size: 0.78rem; }
+
+    /* ── DROPDOWN ── */
+    .nav-item { position: relative; }
+    .nav-item > a {
+      display: flex; align-items: center; gap: 5px;
+    }
+    .nav-item > a .chevron {
+      width: 12px; height: 12px;
+      transition: transform 0.2s;
+      flex-shrink: 0;
+    }
+    .nav-item:hover > a .chevron { transform: rotate(180deg); }
+
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      min-width: 260px;
+      padding: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(-6px);
+      transition: opacity 0.18s ease, transform 0.18s ease;
+      z-index: 200;
+    }
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-group-label {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.6rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-4);
+      padding: 8px 12px 4px;
+    }
+    .dropdown-parent {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 4px;
+    }
+    .dropdown-parent:hover { background: var(--bg-2); }
+    .dropdown-parent-icon {
+      width: 32px; height: 32px;
+      background: var(--blue-xl);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .dropdown-parent-icon svg { width: 15px; height: 15px; }
+    .dropdown-parent-name {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.82rem; font-weight: 700; color: var(--text);
+    }
+    .dropdown-parent-sub {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.7rem; color: var(--text-4); margin-top: 1px;
+    }
+
+    .dropdown-child {
+      display: flex; align-items: center; gap: 10px;
+      padding: 8px 12px;
+      border-radius: 7px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .dropdown-child:hover { background: var(--bg-2); }
+    .dropdown-child-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      flex-shrink: 0; margin-left: 4px;
+    }
+    .dropdown-child-dot.active { background: var(--green); }
+    .dropdown-child-dot.soon   { background: var(--border-2); }
+    .dropdown-child-name {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.8rem; font-weight: 600; color: var(--text-2);
+    }
+    .dropdown-child-badge {
+      margin-left: auto;
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 100px;
+    }
+    .dropdown-child-badge.live { background: var(--green-xl); color: var(--green); }
+    .dropdown-child-badge.soon { background: var(--bg-2); color: var(--text-4); border: 1px solid var(--border); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: var(--text); border-radius: 2px; transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px; left: 0; right: 0;
+      background: var(--bg-card);
+      border-bottom: 1px solid var(--border);
+      padding: 24px;
+      z-index: 99;
+      box-shadow: var(--shadow);
+    }
+    .mobile-menu.open { display: block; }
+    .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+    .mobile-menu a { text-decoration: none; color: var(--text-2); font-weight: 600; font-size: 0.9rem; }
+    .mobile-menu .btn { width: 100%; justify-content: center; margin-top: 16px; }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-right { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 68px;
+      background: var(--bg);
+    }
+
+    /* Subtle dot grid */
+    .hero-dots {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(30,58,138,0.12) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: radial-gradient(ellipse 80% 70% at 20% 50%, black 10%, transparent 80%);
+      pointer-events: none;
+    }
+
+    /* Wave SVG decoration */
+    .hero-wave {
+      position: absolute;
+      right: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52%;
+      min-width: 440px;
+      pointer-events: none;
+      opacity: 0.06;
+    }
+
+    /* Soft radial glows */
+    .hero-glow-blue {
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(30,58,138,0.08) 0%, transparent 65%);
+      top: -60px; right: -80px;
+      pointer-events: none;
+    }
+    .hero-glow-green {
+      position: absolute;
+      width: 380px; height: 380px;
+      background: radial-gradient(circle, rgba(22,163,74,0.06) 0%, transparent 65%);
+      bottom: 10%; left: 5%;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+      padding: 80px 0 64px;
+      position: relative;
+      z-index: 1;
+    }
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 52px; }
+      .hero-visual { display: none; }
+    }
+
+    .hero-left { animation: fadeUp 0.75s ease both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(26px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-xl);
+      border: 1px solid rgba(22,163,74,0.25);
+      border-radius: 100px;
+      padding: 7px 16px;
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 0.04em;
+      margin-bottom: 28px;
+      animation: fadeUp 0.75s 0.1s ease both;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.6; transform: scale(1.25); }
+    }
+
+    .hero-headline {
+      animation: fadeUp 0.75s 0.14s ease both;
+      margin-bottom: 22px;
+    }
+    .hero-headline .line-green { color: var(--green); }
+    .hero-headline .line-blue  { color: var(--blue); }
+
+    .hero-sub {
+      font-size: 0.95rem;
+      max-width: 450px;
+      margin-bottom: 40px;
+      animation: fadeUp 0.75s 0.22s ease both;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.75s 0.32s ease both;
+    }
+
+    /* ── HERO DASHBOARD PANEL ── */
+    .hero-visual {
+      animation: fadeUp 0.85s 0.18s ease both;
+      position: relative;
+    }
+    .hero-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .panel-topbar {
+      background: var(--bg-2);
+      padding: 13px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .panel-dots { display: flex; gap: 6px; }
+    .panel-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .panel-dot:nth-child(1) { background: #FC605B; }
+    .panel-dot:nth-child(2) { background: #FDBC40; }
+    .panel-dot:nth-child(3) { background: #34C749; }
+    .panel-tab-row { display: flex; gap: 4px; margin-left: 8px; }
+    .panel-tab {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 5px 12px;
+      border-radius: 6px;
+    }
+    .panel-tab.active { background: var(--green-xl); color: var(--green); }
+    .panel-tab.inactive { color: var(--text-4); }
+
+    .panel-body { padding: 22px; }
+
+    .panel-kpi-row {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .panel-kpi {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 13px 11px;
+    }
+    .kpi-label {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.58rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-4);
+      margin-bottom: 5px;
+    }
+    .kpi-value {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+    }
+    .kpi-value .kv-g { color: var(--green); }
+    .kpi-value .kv-b { color: var(--blue); }
+    .kpi-value.small { font-size: 0.88rem; padding-top: 4px; }
+
+    .panel-chart {
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      height: 66px;
+      display: flex;
+      align-items: flex-end;
+      gap: 5px;
+    }
+    .chart-bar { flex: 1; border-radius: 3px 3px 0 0; background: var(--blue-xl); }
+    .chart-bar.hi { background: rgba(22,163,74,0.25); }
+
+    .panel-rows { display: flex; flex-direction: column; gap: 7px; }
+    .panel-row-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 13px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .pri-left { display: flex; align-items: center; gap: 9px; }
+    .pri-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .pri-dot.green { background: var(--green); }
+    .pri-dot.amber { background: #f59e0b; }
+    .pri-name {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.74rem; font-weight: 700; color: var(--text);
+    }
+    .pri-sub {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.64rem; color: var(--text-4); margin-top: 1px;
+    }
+    .panel-chip {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.62rem; font-weight: 700;
+      padding: 4px 10px; border-radius: 100px; letter-spacing: 0.04em;
+    }
+    .chip-pass { background: var(--green-xl); color: var(--green); }
+    .chip-pend { background: #fef3c7; color: #d97706; }
+
+    .panel-float {
+      position: absolute;
+      bottom: -18px; left: -28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 13px 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .float-icon {
+      width: 34px; height: 34px;
+      background: var(--blue-xl);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .float-icon svg { width: 15px; height: 15px; }
+    .float-text {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.74rem; font-weight: 700; color: var(--text);
+    }
+    .float-sub {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.65rem; color: var(--text-4); margin-top: 2px;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 28px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+      font-family: 'KalbeSystem', sans-serif;
+      color: var(--text-4); font-size: 0.65rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      z-index: 1; animation: fadeUp 1s 0.55s ease both;
+    }
+    .scroll-line {
+      width: 1px; height: 30px;
+      background: linear-gradient(to bottom, var(--text-4), transparent);
+      animation: scrollLine 2s ease infinite;
+    }
+    @keyframes scrollLine {
+      0%   { opacity: 0; transform: scaleY(0); transform-origin: top; }
+      50%  { opacity: 1; }
+      100% { opacity: 0; transform: scaleY(1); transform-origin: top; }
+    }
+
+    /* ── CLIENTS STRIP ── */
+    .clients-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-card);
+      padding: 22px 0;
+    }
+    .clients-inner {
+      display: flex; align-items: center;
+      gap: 36px; flex-wrap: wrap;
+    }
+    .clients-label {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.63rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.16em;
+      color: var(--text-4); white-space: nowrap;
+    }
+    .clients-logos { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+    .client-name {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.8rem; font-weight: 700;
+      color: var(--border-2); letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .client-sep { width: 1px; height: 14px; background: var(--border); }
+
+    /* ── ABOUT ── */
+    #about { background: var(--bg-card); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 5fr 4fr;
+      gap: 80px; align-items: start;
+    }
+    @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; gap: 48px; } }
+
+    .about-text p { margin-top: 16px; }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 14px; margin-top: 40px;
+    }
+    @media (max-width: 480px) { .stats-row { grid-template-columns: 1fr 1fr; } }
+
+    .stat-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 14px; text-align: center;
+      box-shadow: var(--shadow-xs);
+    }
+    .stat-number {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 2rem; font-weight: 800;
+      color: var(--text); display: block; line-height: 1;
+    }
+    .stat-accent { color: var(--blue); }
+    .stat-label {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.63rem; color: var(--text-4);
+      font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; margin-top: 7px; display: block;
+    }
+
+    .about-cards { display: flex; flex-direction: column; gap: 12px; }
+    .about-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      display: flex; align-items: flex-start; gap: 15px;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .about-card:hover { box-shadow: var(--shadow-sm); transform: translateY(-1px); border-color: var(--blue-xl); }
+    .about-icon {
+      width: 38px; height: 38px;
+      border-radius: 9px;
+      background: var(--blue-xl);
+      border: 1px solid rgba(30,58,138,0.15);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .about-icon svg { width: 17px; height: 17px; }
+    .about-card-body h4 { color: var(--text); margin-bottom: 4px; }
+    .about-card-body p  { font-size: 0.78rem; line-height: 1.65; }
+
+    /* ── PRODUCTS ── */
+    #products { background: var(--bg-2); }
+
+    .section-header { margin-bottom: 52px; }
+    .section-header p { max-width: 500px; margin-top: 12px; }
+
+    /* Sidebar + content layout */
+    .products-layout {
+      display: flex;
+      gap: 28px;
+      align-items: flex-start;
+    }
+    @media (max-width: 860px) {
+      .products-layout { flex-direction: column; }
+      .prod-sidebar { width: 100% !important; }
+    }
+
+    /* ── Sidebar ── */
+    .prod-sidebar {
+      width: 256px;
+      flex-shrink: 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-xs);
+    }
+
+    /* ── Content area ── */
+    .prod-content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .prod-sidebar-header {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      background: var(--text);
+    }
+    .prod-sidebar-eyebrow {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 4px;
+    }
+    .prod-sidebar-name {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.9rem; font-weight: 700; color: #fff;
+      line-height: 1.3;
+    }
+    .prod-sidebar-sub {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.72rem; color: rgba(255,255,255,0.45);
+      margin-top: 2px;
+    }
+
+    .prod-nav { padding: 8px 0; }
+    .prod-nav-section-label {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-4);
+      padding: 10px 20px 4px;
+    }
+
+    /* Parent nav item (e.g. WS-Pharma) */
+    .prod-nav-item {
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 20px;
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.82rem; font-weight: 600;
+      color: var(--text-2);
+      background: none; border: none; cursor: pointer;
+      text-align: left;
+      transition: background 0.15s, color 0.15s;
+      gap: 8px;
+    }
+    .prod-nav-item:hover { background: var(--bg-2); color: var(--text); }
+    .prod-nav-item.active {
+      color: var(--blue); font-weight: 700;
+      background: var(--blue-xl);
+    }
+    .prod-nav-item.disabled {
+      color: var(--text-4); cursor: default;
+      opacity: 0.7;
+    }
+    .prod-nav-item.disabled:hover { background: none; }
+    .prod-nav-badge {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.58rem; font-weight: 700;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 100px;
+      flex-shrink: 0;
+    }
+    .prod-nav-badge.live { background: var(--green-xl); color: var(--green); }
+    .prod-nav-badge.soon { background: var(--bg-2); color: var(--text-4); border: 1px solid var(--border); }
+
+    /* Child items (sub-products under WS-Pharma) */
+    .prod-nav-children {
+      border-left: 2px solid var(--border);
+      margin: 0 0 4px 28px;
+    }
+    .prod-nav-child {
+      width: 100%;
+      display: flex; align-items: center; gap: 8px;
+      padding: 8px 16px;
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.78rem; font-weight: 500;
+      color: var(--text-3);
+      background: none; border: none; cursor: pointer;
+      text-align: left;
+      transition: background 0.15s, color 0.15s;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+    .prod-nav-child:hover { background: var(--bg-2); color: var(--text); }
+    .prod-nav-child.active {
+      color: var(--blue); font-weight: 700;
+      background: var(--blue-xl);
+    }
+    .prod-nav-child-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: currentColor; flex-shrink: 0; opacity: 0.5;
+    }
+    .prod-nav-child.active .prod-nav-child-dot { opacity: 1; }
+
+    .prod-nav-divider {
+      height: 1px; background: var(--border);
+      margin: 8px 0;
+    }
+
+    /* ── Content panels ── */
+    .prod-content { min-height: 400px; }
+    .prod-panel { display: none; }
+    .prod-panel.active { display: block; }
+
+    /* Panel: WS-Pharma overview */
+    .panel-hero {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-xs);
+    }
+    .panel-hero-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: var(--green-xl);
+      border: 1px solid rgba(22,163,74,0.25);
+      border-radius: 100px;
+      padding: 4px 12px;
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 12px;
+    }
+    .panel-hero h2 { font-size: 1.7rem; margin-bottom: 10px; }
+    .panel-hero > p { font-size: 0.88rem; max-width: 520px; }
+    .panel-hero-modules {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-top: 22px; padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .panel-module-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.75rem; font-weight: 600; color: var(--text-2);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .panel-module-chip:hover { border-color: var(--blue-l); background: var(--blue-xl); color: var(--blue); }
+    .panel-module-chip svg { width: 13px; height: 13px; opacity: 0.6; }
+
+    /* Sub-product detail cards */
+    .subproduct-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px; margin-bottom: 16px;
+    }
+    @media (max-width: 640px) { .subproduct-grid { grid-template-columns: 1fr; } }
+
+    .subproduct-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow-xs);
+      transition: box-shadow 0.22s, transform 0.22s;
+    }
+    .subproduct-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+    .subproduct-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 12px;
+    }
+    .subproduct-icon {
+      width: 36px; height: 36px;
+      background: var(--blue-xl);
+      border: 1px solid rgba(30,58,138,0.15);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .subproduct-icon svg { width: 16px; height: 16px; }
+    .subproduct-card h3 { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .subproduct-card > p { font-size: 0.82rem; color: var(--text-3); line-height: 1.7; margin-bottom: 18px; }
+    .subproduct-divider { height: 1px; background: var(--border); margin-bottom: 14px; }
+    .subproduct-incl { display: flex; align-items: center; gap: 8px; }
+    .incl-icon {
+      width: 18px; height: 18px;
+      border: 1.5px solid var(--green);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .incl-icon svg { width: 9px; height: 9px; }
+    .incl-text {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.76rem; font-weight: 700; color: var(--green);
+    }
+
+    /* Full feature detail panel (Dispense / CheckWeigh) */
+    .detail-panel-header {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-xs);
+      display: flex; align-items: flex-start; gap: 20px;
+    }
+    .detail-panel-icon {
+      width: 52px; height: 52px;
+      background: var(--blue-xl);
+      border: 1px solid rgba(30,58,138,0.15);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .detail-panel-icon svg { width: 22px; height: 22px; }
+    .detail-panel-eyebrow {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.62rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 6px;
+    }
+    .detail-panel-header h2 { font-size: 1.5rem; margin-bottom: 8px; }
+    .detail-panel-header p { font-size: 0.87rem; }
+
+    .detail-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 640px) { .detail-features { grid-template-columns: 1fr; } }
+
+    .detail-feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow-xs);
+    }
+    .dfc-icon {
+      width: 32px; height: 32px;
+      background: var(--green-xl);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 12px;
+    }
+    .dfc-icon svg { width: 15px; height: 15px; }
+    .detail-feature-card h4 { font-size: 0.84rem; margin-bottom: 5px; }
+    .detail-feature-card p  { font-size: 0.78rem; line-height: 1.65; }
+
+    /* Shared module / Scale Calibration panel */
+    .shared-module-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 28px;
+      display: flex; align-items: center; gap: 16px;
+      box-shadow: var(--shadow-xs);
+      margin-top: 16px;
+    }
+    .shared-module-icon {
+      width: 36px; height: 36px;
+      background: var(--bg-2);
+      border: 1px solid var(--border-2);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .shared-module-icon svg { width: 16px; height: 16px; }
+    .shared-module-name {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.9rem; font-weight: 700; color: var(--text);
+    }
+    .shared-module-desc {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.76rem; color: var(--text-3); margin-top: 2px;
+    }
+
+    /* Product tags */
+    .prod-tags {
+      display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 0;
+    }
+    .prod-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.02em;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: var(--blue-xl); color: var(--blue);
+      border: 1px solid rgba(30,58,138,0.15);
+    }
+    .prod-tag.green { background: var(--green-xl); color: var(--green); border-color: rgba(22,163,74,0.2); }
+
+    /* Bundle callout */
+    .bundle-callout {
+      display: flex; align-items: center; gap: 14px;
+      background: linear-gradient(135deg, var(--blue-xl) 0%, var(--green-xl) 100%);
+      border: 1px solid rgba(30,58,138,0.15);
+      border-radius: var(--radius);
+      padding: 18px 22px;
+      margin-top: 28px;
+    }
+    .bundle-callout-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: #fff; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: var(--shadow-xs);
+    }
+    .bundle-callout-icon svg { width: 18px; height: 18px; }
+    .bundle-callout-title {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.9rem; font-weight: 700; color: var(--blue);
+    }
+    .bundle-callout-desc {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.78rem; color: var(--text-2); margin-top: 2px;
+    }
+    .bundle-callout-badge {
+      margin-left: auto; flex-shrink: 0;
+      background: var(--green); color: #fff;
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.8rem; font-weight: 700;
+      padding: 6px 14px; border-radius: 999px;
+    }
+
+    /* Coming-soon verticals */
+    .coming-soon-section { margin-top: 36px; }
+    .coming-soon-label {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--text-4); margin-bottom: 12px;
+    }
+    .coming-soon-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    }
+    @media (max-width: 640px) { .coming-soon-grid { grid-template-columns: repeat(2, 1fr); } }
+    .coming-soon-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      text-align: center;
+      opacity: 0.65;
+    }
+    .coming-soon-card-name {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.82rem; font-weight: 700; color: var(--text);
+    }
+    .coming-soon-card-sub {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.72rem; color: var(--text-4); margin-top: 3px;
+    }
+    .coming-soon-pill {
+      display: inline-block;
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.64rem; font-weight: 600;
+      background: var(--bg-3); color: var(--text-4);
+      border-radius: 999px; padding: 2px 8px; margin-top: 8px;
+    }
+
+    /* Feature checklist inside detail panels */
+    .feature-checklist {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+      margin-top: 20px;
+    }
+    @media (max-width: 640px) { .feature-checklist { grid-template-columns: 1fr; } }
+    .fc-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 14px;
+    }
+    .fc-check {
+      width: 18px; height: 18px; flex-shrink: 0;
+      background: var(--green-xl); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .fc-check svg { width: 10px; height: 10px; }
+    .fc-text {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.8rem; color: var(--text-2); line-height: 1.5;
+    }
+    .fc-text strong { font-weight: 700; color: var(--text); display: block; }
+
+    .feature-list {
+      list-style: none;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .feature-list li {
+      display: flex; align-items: flex-start; gap: 9px;
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.78rem; color: var(--text-2);
+    }
+    .feature-list li::before {
+      content: '';
+      width: 15px; height: 15px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(22,163,74,0.5);
+      background: var(--green-xl);
+      display: block; flex-shrink: 0; margin-top: 1px;
+      background-image: url("data:image/svg+xml,%3Csvg width='8' height='6' viewBox='0 0 8 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 3L3 5L7 1' stroke='%2316A34A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center;
+    }
+
+
+    /* ── WHY NUSARA ── */
+    #why { background: var(--bg-card); }
+
+    .why-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-xs);
+      transition: box-shadow 0.22s, transform 0.22s, border-color 0.22s;
+      position: relative; overflow: hidden;
+    }
+    .why-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue) 0%, var(--green) 100%);
+      opacity: 0;
+      transition: opacity 0.22s;
+    }
+    .why-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); border-color: var(--border-2); }
+    .why-card:hover::after { opacity: 1; }
+
+    .why-icon-wrap {
+      width: 48px; height: 48px;
+      border-radius: 11px;
+      background: var(--blue-xl);
+      border: 1px solid rgba(30,58,138,0.15);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .why-icon-wrap svg { width: 22px; height: 22px; }
+    .why-card h3 { font-size: 0.97rem; margin-bottom: 9px; }
+    .why-card p  { font-size: 0.8rem; line-height: 1.75; }
+
+    .legacy-bar {
+      margin-top: 36px;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      display: flex; align-items: center;
+      gap: 28px; flex-wrap: wrap;
+    }
+    .legacy-bar-text { flex: 1; min-width: 240px; }
+    .legacy-bar-text h3 { font-size: 1rem; margin-top: 7px; margin-bottom: 9px; }
+    .legacy-bar-text p { font-size: 0.8rem; }
+
+    /* ── CTA ── */
+    #cta {
+      background: var(--text); /* deep navy as CTA bg for contrast */
+      padding: 100px 0;
+      position: relative; overflow: hidden;
+    }
+    .cta-wave {
+      position: absolute; inset: 0;
+      pointer-events: none; overflow: hidden;
+    }
+    .cta-wave svg {
+      position: absolute;
+      bottom: -40px; right: -60px;
+      width: 55%; min-width: 380px; opacity: 0.06;
+    }
+    .cta-glow {
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(30,58,138,0.35) 0%, transparent 65%);
+      top: -80px; left: -60px;
+      pointer-events: none;
+    }
+    .cta-inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px; align-items: center;
+    }
+    @media (max-width: 768px) {
+      .cta-inner { grid-template-columns: 1fr; }
+      .cta-right { display: flex; gap: 12px; flex-wrap: wrap; }
+    }
+    .cta-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--green-l); margin-bottom: 14px;
+    }
+    .cta-label::before {
+      content: ''; display: block;
+      width: 22px; height: 2px;
+      background: var(--green-l); border-radius: 2px;
+    }
+    #cta h2 { color: #fff; margin-bottom: 14px; }
+    #cta p  { color: rgba(255,255,255,0.5); max-width: 460px; font-size: 0.92rem; }
+    .cta-right {
+      display: flex; flex-direction: column;
+      gap: 11px; align-items: flex-end; flex-shrink: 0;
+    }
+    @media (max-width: 768px) { .cta-right { align-items: flex-start; } }
+    .btn-ghost-white {
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.65);
+      border: 1.5px solid rgba(255,255,255,0.15);
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.8rem; font-weight: 700;
+      padding: 13px 26px; border-radius: 100px;
+      text-decoration: none; display: inline-flex; align-items: center;
+      transition: all 0.22s;
+    }
+    .btn-ghost-white:hover { background: rgba(255,255,255,0.13); color: #fff; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 42px 0;
+      background: var(--bg-card);
+    }
+    .footer-inner {
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .footer-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .footer-logo img { height: 36px; width: auto; }
+    .footer-tagline {
+      font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.72rem; color: var(--text-4); margin-top: 2px; font-weight: 500;
+    }
+    .footer-tagline span { color: var(--green); font-weight: 700; }
+    .footer-right { text-align: right; }
+    .footer-copy { font-family: 'KalbeSystem', sans-serif; font-size: 0.72rem; color: var(--text-4); }
+    .footer-links {
+      display: flex; gap: 22px; list-style: none;
+      margin-bottom: 7px; justify-content: flex-end;
+    }
+    .footer-links a {
+      text-decoration: none; font-family: 'KalbeSystem', sans-serif;
+      font-size: 0.76rem; font-weight: 600; color: var(--text-3); transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    @media (max-width: 580px) {
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-right { text-align: left; }
+      .footer-links { justify-content: flex-start; }
+    }
+    @media (max-width: 640px) {
+      .product-line { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="NUSARA LOGO-landscape.png" alt="Nusara Technology" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li class="nav-item">
+        <a href="#products">
+          Products
+          <svg class="chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="2 4 6 8 10 4"/>
+          </svg>
+        </a>
+        <div class="dropdown">
+          <div class="dropdown-group-label">Product Lines</div>
+          <a href="#products" class="dropdown-parent">
+            <div class="dropdown-parent-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l9 4.5V17L12 21.5 3 17V6.5L12 2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="dropdown-parent-name">Nusara Weighing Solution</div>
+              <div class="dropdown-parent-sub">Cross-industry weighing platform</div>
+            </div>
+          </a>
+          <a href="#products" class="dropdown-child">
+            <span class="dropdown-child-dot active"></span>
+            <span class="dropdown-child-name">Nusara WS-Pharma</span>
+            <span class="dropdown-child-badge live">Live</span>
+          </a>
+          <a href="#products" class="dropdown-child">
+            <span class="dropdown-child-dot soon"></span>
+            <span class="dropdown-child-name">Nusara WS-Cosmetics</span>
+            <span class="dropdown-child-badge soon">Soon</span>
+          </a>
+          <a href="#products" class="dropdown-child">
+            <span class="dropdown-child-dot soon"></span>
+            <span class="dropdown-child-name">Nusara WS-FnB</span>
+            <span class="dropdown-child-badge soon">Soon</span>
+          </a>
+          <a href="#products" class="dropdown-child">
+            <span class="dropdown-child-dot soon"></span>
+            <span class="dropdown-child-name">More industries</span>
+            <span class="dropdown-child-badge soon">Soon</span>
+          </a>
+        </div>
+      </li>
+      <li><a href="#why">Why Nusara</a></li>
+      <li><a href="#cta">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="#cta" class="btn btn-primary nav-cta">Request Demo</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#about" onclick="closeMobile()">About</a></li>
+    <li><a href="#products" onclick="closeMobile()">Products</a></li>
+    <li><a href="#why" onclick="closeMobile()">Why Nusara</a></li>
+    <li><a href="#cta" onclick="closeMobile()">Contact</a></li>
+  </ul>
+  <a href="#cta" class="btn btn-primary" onclick="closeMobile()">Request Demo</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-dots"></div>
+  <div class="hero-glow-blue"></div>
+  <div class="hero-glow-green"></div>
+
+  <!-- Wave background (brand "N" wave motif) -->
+  <svg class="hero-wave" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M80 500 Q200 80 400 280 Q600 480 720 60"   stroke="#1E3A8A" stroke-width="3"   fill="none"/>
+    <path d="M60 520 Q180 100 380 300 Q580 500 700 80"  stroke="#1E3A8A" stroke-width="2"   fill="none" opacity="0.7"/>
+    <path d="M40 540 Q160 120 360 320 Q560 520 680 100" stroke="#16A34A" stroke-width="1.5" fill="none" opacity="0.55"/>
+    <path d="M100 480 Q220 60 420 260 Q620 460 740 40"  stroke="#1E3A8A" stroke-width="1.2" fill="none" opacity="0.4"/>
+    <path d="M120 460 Q240 40 440 240 Q640 440 760 20"  stroke="#16A34A" stroke-width="1"   fill="none" opacity="0.28"/>
+  </svg>
+
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          Now Live · Nusara WS-Pharma
+        </div>
+        <h1 class="hero-headline">
+          Reliable<br/>
+          technology.<br/>
+          <span class="line-green">Stronger</span> <span class="line-blue">tomorrow.</span>
+        </h1>
+        <p class="hero-sub">
+          Industry-grade software solutions built for precision, compliance, and scale.
+          Starting with pharmaceutical weighing — expanding across industries.
+        </p>
+        <div class="hero-ctas">
+          <a href="#products" class="btn btn-primary">Explore Products</a>
+          <a href="#about" class="btn btn-outline">Learn More</a>
+        </div>
+      </div>
+
+      <!-- Dashboard mockup -->
+      <div class="hero-visual">
+        <div class="hero-panel">
+          <div class="panel-topbar">
+            <div class="panel-dots">
+              <div class="panel-dot"></div>
+              <div class="panel-dot"></div>
+              <div class="panel-dot"></div>
+            </div>
+            <div class="panel-tab-row">
+              <span class="panel-tab active">Live Dashboard</span>
+              <span class="panel-tab inactive">Audit Trail</span>
+              <span class="panel-tab inactive">Reports</span>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="panel-kpi-row">
+              <div class="panel-kpi">
+                <div class="kpi-label">Batches</div>
+                <div class="kpi-value"><span class="kv-g">48</span></div>
+              </div>
+              <div class="panel-kpi">
+                <div class="kpi-label">Pass Rate</div>
+                <div class="kpi-value">99<span class="kv-g">.6%</span></div>
+              </div>
+              <div class="panel-kpi">
+                <div class="kpi-label">Sites</div>
+                <div class="kpi-value"><span class="kv-b">4</span></div>
+              </div>
+              <div class="panel-kpi">
+                <div class="kpi-label">Compliance</div>
+                <div class="kpi-value small">21 CFR<span class="kv-b"> P11</span></div>
+              </div>
+            </div>
+
+            <div class="panel-chart" aria-hidden="true">
+              <div class="chart-bar" style="height:40%"></div>
+              <div class="chart-bar" style="height:60%"></div>
+              <div class="chart-bar hi" style="height:85%"></div>
+              <div class="chart-bar" style="height:52%"></div>
+              <div class="chart-bar hi" style="height:95%"></div>
+              <div class="chart-bar" style="height:68%"></div>
+              <div class="chart-bar hi" style="height:80%"></div>
+              <div class="chart-bar" style="height:48%"></div>
+              <div class="chart-bar hi" style="height:90%"></div>
+              <div class="chart-bar" style="height:62%"></div>
+              <div class="chart-bar hi" style="height:76%"></div>
+              <div class="chart-bar" style="height:43%"></div>
+            </div>
+
+            <div class="panel-rows">
+              <div class="panel-row-item">
+                <div class="pri-left">
+                  <span class="pri-dot green"></span>
+                  <div>
+                    <div class="pri-name">Batch #B-20240523-01</div>
+                    <div class="pri-sub">Nusara Dispense · Site A</div>
+                  </div>
+                </div>
+                <span class="panel-chip chip-pass">✓ Pass</span>
+              </div>
+              <div class="panel-row-item">
+                <div class="pri-left">
+                  <span class="pri-dot green"></span>
+                  <div>
+                    <div class="pri-name">Batch #B-20240523-02</div>
+                    <div class="pri-sub">CheckWeigh · Site B</div>
+                  </div>
+                </div>
+                <span class="panel-chip chip-pass">✓ Pass</span>
+              </div>
+              <div class="panel-row-item">
+                <div class="pri-left">
+                  <span class="pri-dot amber"></span>
+                  <div>
+                    <div class="pri-name">Batch #B-20240523-03</div>
+                    <div class="pri-sub">Nusara Dispense · Site C</div>
+                  </div>
+                </div>
+                <span class="panel-chip chip-pend">⏳ In Progress</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-float">
+          <div class="float-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </div>
+          <div>
+            <div class="float-text">ERP Sync Active</div>
+            <div class="float-sub">Oracle &amp; SAP · Real-time</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── CLIENTS STRIP ── -->
+<div class="clients-strip">
+  <div class="container clients-inner">
+    <span class="clients-label">Trusted by</span>
+    <div class="clients-logos">
+      <span class="client-name">Kalbe Group</span>
+      <div class="client-sep"></div>
+      <span class="client-name">Oracle ERP</span>
+      <div class="client-sep"></div>
+      <span class="client-name">SAP Integration</span>
+      <div class="client-sep"></div>
+      <span class="client-name">GMP Certified</span>
+      <div class="client-sep"></div>
+      <span class="client-name">21 CFR Part 11</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── ABOUT ── -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text">
+        <span class="label">Who We Are</span>
+        <h2>Built for industry.<br/>Designed to last.</h2>
+        <p>
+          Nusara Technology is a multi-industry software company headquartered in Indonesia.
+          We build reliable, compliant, and scalable software for industries that cannot afford error —
+          starting with pharmaceutical manufacturing.
+        </p>
+        <p>
+          Our solutions go beyond software: we embed deeply into your operations, integrate with your ERP,
+          and grow with your sites. One platform. Many industries. Zero compromises.
+        </p>
+        <div class="stats-row">
+          <div class="stat-card">
+            <span class="stat-number stat-accent">4+</span>
+            <span class="stat-label">Active Sites</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number stat-accent">2</span>
+            <span class="stat-label">Sub-products</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number stat-accent">21 CFR</span>
+            <span class="stat-label">Part 11 Ready</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-cards">
+        <div class="about-card">
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 21h18M3 7l9-4 9 4M3 7v14M21 7v14M9 21V11l3-2 3 2v10"/>
+            </svg>
+          </div>
+          <div class="about-card-body">
+            <h4>Pharmaceutical-First</h4>
+            <p>Deployed at Kalbe Group across multiple manufacturing sites with full GMP compliance.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+            </svg>
+          </div>
+          <div class="about-card-body">
+            <h4>ERP-Native Integration</h4>
+            <p>Seamless two-way sync with Oracle and SAP via IDoc — no middleware complexity.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <div class="about-card-body">
+            <h4>Multi-Site Architecture</h4>
+            <p>Centralised management across all your sites with site-level granularity and control.</p>
+          </div>
+        </div>
+        <div class="about-card">
+          <div class="about-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          <div class="about-card-body">
+            <h4>Built to Expand</h4>
+            <p>Starting with Nusara WS-Pharma. Cosmetics and Food &amp; Beverage verticals are next.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PRODUCTS ── -->
+<section id="products" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Our Products</span>
+      <h2>Nusara Product Suite</h2>
+      <p>Precision weighing software for regulated industries — navigate the hierarchy to explore each product.</p>
+    </div>
+
+    <div class="products-layout">
+
+      <!-- ── CONTENT PANELS ── -->
+      <div class="prod-content">
+
+        <!-- Panel: WS-Pharma overview -->
+        <div class="prod-panel active" id="panel-pharma">
+          <div class="panel-hero">
+            <div class="panel-hero-badge">
+              <span class="badge-dot"></span> Active Now · Pharmaceutical
+            </div>
+            <h2>Nusara WS-Pharma</h2>
+            <p>Full-stack weighing software for pharmaceutical manufacturing — GMP compliant, on-premise, and deployed across Kalbe Group sites. Two independent modules, one unified platform.</p>
+            <div class="prod-tags">
+              <span class="prod-tag">Perpetual License</span>
+              <span class="prod-tag">On-Premise</span>
+              <span class="prod-tag green">GxP / EU Annex 11</span>
+              <span class="prod-tag green">Unlimited Users</span>
+              <span class="prod-tag">Made in Indonesia</span>
+            </div>
+            <div class="panel-hero-modules" style="margin-top: 20px;">
+              <button class="panel-module-chip" data-panel="dispense">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="21"/><path d="M6 21h12"/><path d="M4 8l8-5 8 5"/><path d="M4 8c0 2.2 1.8 4 4 4s4-1.8 4-4"/><path d="M12 8c0 2.2 1.8 4 4 4s4-1.8 4-4"/></svg>
+                WS-WD · Nusara Dispense
+              </button>
+              <button class="panel-module-chip" data-panel="checkweigh">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                WS-CW · Nusara CheckWeigh
+              </button>
+            </div>
+          </div>
+
+          <div class="subproduct-grid">
+            <div class="subproduct-card">
+              <div class="subproduct-header">
+                <div class="subproduct-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="21"/><path d="M6 21h12"/><path d="M4 8l8-5 8 5"/><path d="M4 8c0 2.2 1.8 4 4 4s4-1.8 4-4"/><path d="M12 8c0 2.2 1.8 4 4 4s4-1.8 4-4"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-4);margin-bottom:2px;">WS-WD</div>
+                  <h3>Nusara Dispense</h3>
+                </div>
+              </div>
+              <p>Multi-material BOM-driven weighing &amp; dispensing. Partial validation, container/LPN tracking, supervisor authorization, ZPL label printing, and calibration management — all in one module.</p>
+              <div class="subproduct-divider"></div>
+              <div class="subproduct-incl">
+                <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span class="incl-text">Calibration management bundled</span>
+              </div>
+            </div>
+            <div class="subproduct-card">
+              <div class="subproduct-header">
+                <div class="subproduct-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                </div>
+                <div>
+                  <div style="font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-4);margin-bottom:2px;">WS-CW</div>
+                  <h3>Nusara CheckWeigh</h3>
+                </div>
+              </div>
+              <p>IPC tolerance verification and automatic check weighing at the packaging line. CB/MB/BLS pack structure, MB label generation (ZPL), reprint &amp; sample label flows, and full audit trail.</p>
+              <div class="subproduct-divider"></div>
+              <div class="subproduct-incl">
+                <div class="incl-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span class="incl-text">Unlimited packaging lines &amp; users</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bundle callout -->
+          <div class="bundle-callout">
+            <div class="bundle-callout-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+            </div>
+            <div>
+              <div class="bundle-callout-title">Bundle Discount: WS-WD + WS-CW</div>
+              <div class="bundle-callout-desc">Purchase Nusara Dispense and Nusara CheckWeigh together and save 15% off the combined list price.</div>
+            </div>
+            <div class="bundle-callout-badge">Save 15%</div>
+          </div>
+
+          <!-- Coming soon verticals -->
+          <div class="coming-soon-section">
+            <div class="coming-soon-label">Coming Soon · Nusara Weighing Solution</div>
+            <div class="coming-soon-grid">
+              <div class="coming-soon-card">
+                <div class="coming-soon-card-name">WS-FnB</div>
+                <div class="coming-soon-card-sub">Food &amp; Beverage</div>
+                <div class="coming-soon-pill">In Development</div>
+              </div>
+              <div class="coming-soon-card">
+                <div class="coming-soon-card-name">WS-Nutritional</div>
+                <div class="coming-soon-card-sub">Nutritional Products</div>
+                <div class="coming-soon-pill">In Development</div>
+              </div>
+              <div class="coming-soon-card">
+                <div class="coming-soon-card-name">WS-Cosmetics</div>
+                <div class="coming-soon-card-sub">Cosmetics &amp; Personal Care</div>
+                <div class="coming-soon-pill">In Development</div>
+              </div>
+              <div class="coming-soon-card">
+                <div class="coming-soon-card-name">WS-Chemical</div>
+                <div class="coming-soon-card-sub">Industrial Chemical</div>
+                <div class="coming-soon-pill">In Development</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel: Nusara Dispense (WS-WD) -->
+        <div class="prod-panel" id="panel-dispense">
+          <div class="detail-panel-header">
+            <div class="detail-panel-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="3" x2="12" y2="21"/><path d="M6 21h12"/><path d="M4 8l8-5 8 5"/><path d="M4 8c0 2.2 1.8 4 4 4s4-1.8 4-4"/><path d="M12 8c0 2.2 1.8 4 4 4s4-1.8 4-4"/></svg>
+            </div>
+            <div>
+              <div class="detail-panel-eyebrow">WS-WD · Weighing &amp; Dispensing</div>
+              <h2>Nusara Dispense</h2>
+              <p>Multi-material BOM-driven weighing and dispensing for pharmaceutical manufacturing — with partial validation, container tracking, and built-in calibration management.</p>
+            </div>
+          </div>
+          <div class="feature-checklist">
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Multi-material BOM dispensing</strong>Execute multi-material batches directly from Bill of Materials.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Partial validation + write-locks</strong>Enforce step-level validation with write-locks that prevent uncommitted changes.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Container / LPN tracking</strong>Track every container and licence plate number throughout the dispensing process.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Supervisor authorization flows</strong>Built-in approval workflows for exception handling and out-of-tolerance events.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Label printing (ZPL)</strong>Automatic ZPL label printing at each dispensing step — no manual intervention required.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Calibration management</strong>Manage calibration schedules and certificates for all connected scales — bundled at no extra cost.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Audit trail + e-signature</strong>Immutable audit trail with electronic signatures on every user action and record change.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>EU Annex 11 / GxP ready</strong>Designed from the ground up to satisfy EU Annex 11 and GxP regulatory requirements.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Standard reporting suite</strong>Out-of-the-box reports for batch records, material consumption, and audit summaries.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Unlimited users</strong>No per-seat licensing — deploy to every operator, supervisor, and QA user without additional cost.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel: Nusara CheckWeigh (WS-CW) -->
+        <div class="prod-panel" id="panel-checkweigh">
+          <div class="detail-panel-header">
+            <div class="detail-panel-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+            </div>
+            <div>
+              <div class="detail-panel-eyebrow">WS-CW · Check Weighing</div>
+              <h2>Nusara CheckWeigh</h2>
+              <p>Automatic check weighing at the packaging line — IPC tolerance verification, ZPL label generation, and full audit trail across CB/MB/BLS pack structures.</p>
+            </div>
+          </div>
+          <div class="feature-checklist">
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>IPC tolerance verification</strong>Per-product IPC tolerance rules enforced at the line — automatic pass/fail at every check.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>MB label generation (ZPL)</strong>Automatic master box label printing via ZPL on a successful check-weigh result.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Pack structure: CB / MB / BLS</strong>Full support for carton-box, master-box, and blister pack structures within a single workflow.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Reprint + sample label flows</strong>Configurable reprint and sample-label workflows with approval gating for QA teams.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Automatic check weighing</strong>Scale-triggered automatic weighing — no manual operator input required during normal operation.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Audit trail + e-signature</strong>Immutable audit trail with electronic signatures on every user action and record change.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>EU Annex 11 / GxP ready</strong>Designed from the ground up to satisfy EU Annex 11 and GxP regulatory requirements.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Standard reporting suite</strong>Out-of-the-box reports for check-weigh results, line performance, and QA audit summaries.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Unlimited packaging lines</strong>No line-count cap — deploy across every packaging line in your facility under one licence.</div>
+            </div>
+            <div class="fc-item">
+              <div class="fc-check"><svg viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+              <div class="fc-text"><strong>Unlimited users</strong>No per-seat licensing — deploy to every operator, supervisor, and QA user without additional cost.</div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /prod-content -->
+    </div><!-- /products-layout -->
+  </div>
+</section>
+
+<!-- ── WHY NUSARA ── -->
+<section id="why" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Why Nusara</span>
+      <h2>The platform your operations deserve</h2>
+      <p>Purpose-built for regulated manufacturing. No bloat, no guesswork — just reliable software that works the way your team does.</p>
+    </div>
+
+    <div class="grid-4">
+      <div class="why-card">
+        <div class="why-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <polyline points="9 12 11 14 15 10"/>
+          </svg>
+        </div>
+        <h3>GMP Compliant</h3>
+        <p>Full Annex 11 and 21 CFR Part 11 compliance baked in — not bolted on. Every action logged, every record immutable.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+        </div>
+        <h3>ERP Native</h3>
+        <p>Real-time, bidirectional integration with Oracle and SAP via IDoc. No middleware, no sync delays, no data gaps.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <h3>Multi-site Ready</h3>
+        <p>One platform to manage all your sites. Centralised visibility with site-level controls, roles, and configurations.</p>
+      </div>
+
+      <div class="why-card">
+        <div class="why-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1E3A8A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+            <polyline points="17 6 23 6 23 12"/>
+          </svg>
+        </div>
+        <h3>Built to Scale</h3>
+        <p>Nusara WS grows beyond pharma. Cosmetics, food &amp; beverage, and more — the same trusted core, new verticals.</p>
+      </div>
+    </div>
+
+    <div class="legacy-bar">
+      <div class="legacy-bar-text">
+        <span class="label" style="margin-bottom:0;">Legacy Replacement</span>
+        <p>Nusara WS-Pharma is designed to replace legacy MES weighing modules with a modern, maintainable, and cost-effective alternative — already proven at Kalbe Group.</p>
+      </div>
+      <a href="#cta" class="btn btn-navy">Discuss Migration</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section id="cta">
+  <div class="cta-glow"></div>
+  <div class="cta-wave">
+    <svg viewBox="0 0 700 500" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M50 420 Q150 100 350 250 Q550 400 650 80"  stroke="#1E3A8A" stroke-width="2.5" fill="none"/>
+      <path d="M30 440 Q130 120 330 270 Q530 420 630 100" stroke="#1E3A8A" stroke-width="1.8" fill="none" opacity="0.7"/>
+      <path d="M10 460 Q110 140 310 290 Q510 440 610 120" stroke="#16A34A" stroke-width="1.3" fill="none" opacity="0.5"/>
+      <path d="M70 400 Q170 80 370 230 Q570 380 670 60"   stroke="#1E3A8A" stroke-width="1"   fill="none" opacity="0.35"/>
+    </svg>
+  </div>
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <div class="cta-label">Get Started</div>
+        <h2>Ready to modernise your<br/>weighing operations?</h2>
+        <p>Let's walk through how Nusara WS-Pharma can transform your manufacturing floor — from dispensing to final check weighing.</p>
+      </div>
+      <div class="cta-right">
+        <a href="mailto:hello@nusara.id" class="btn btn-primary" style="font-size:0.84rem;padding:14px 32px;white-space:nowrap;">Request a Demo →</a>
+        <a href="#products" class="btn-ghost-white" style="white-space:nowrap;">View Products</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="container footer-inner">
+    <div>
+      <a href="#" class="footer-logo">
+        <img src="NUSARA LOGO-landscape.png" alt="Nusara Technology" />
+      </a>
+      <div class="footer-tagline">Flow. Build. <span>Advance.</span></div>
+    </div>
+    <div class="footer-right">
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#why">Why Nusara</a></li>
+        <li><a href="#cta">Contact</a></li>
+      </ul>
+      <div class="footer-copy">&copy; 2025 Nusara Technology. All rights reserved.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  function closeMobile() { mobileMenu.classList.remove('open'); }
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--text)' : '';
+    });
+  });
+
+  // ── Product sidebar navigation ──
+  function switchPanel(panelId) {
+    // Hide all panels
+    document.querySelectorAll('.prod-panel').forEach(p => p.classList.remove('active'));
+    // Show target
+    const target = document.getElementById('panel-' + panelId);
+    if (target) target.classList.add('active');
+
+    // Update sidebar parent items
+    document.querySelectorAll('.prod-nav-item:not(.disabled)').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.panel === panelId);
+    });
+
+    // Update sidebar child items
+    document.querySelectorAll('.prod-nav-child').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.panel === panelId);
+    });
+
+    // If a child panel is active, also highlight the parent (pharma)
+    const childPanels = ['dispense', 'checkweigh'];
+    const pharmaBtn = document.querySelector('.prod-nav-item[data-panel="pharma"]');
+    if (childPanels.includes(panelId)) {
+      pharmaBtn.classList.add('active');
+    }
+  }
+
+  // Sidebar parent buttons
+  document.querySelectorAll('.prod-nav-item[data-panel]').forEach(btn => {
+    btn.addEventListener('click', () => switchPanel(btn.dataset.panel));
+  });
+
+  // Sidebar child buttons
+  document.querySelectorAll('.prod-nav-child[data-panel]').forEach(btn => {
+    btn.addEventListener('click', () => switchPanel(btn.dataset.panel));
+  });
+
+  // Module chips inside WS-Pharma panel
+  document.querySelectorAll('.panel-module-chip[data-panel]').forEach(btn => {
+    btn.addEventListener('click', () => switchPanel(btn.dataset.panel));
+  });
+</script>
+</body>
+</html>
